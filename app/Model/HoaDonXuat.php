@@ -8,10 +8,13 @@ class HoaDonXuat extends Model
 {
     protected $table = 'hoa_don_xuat';
     protected $fillable = [
-        'nhan_vien_id',
-        'khach_hang_id',
         'ngay_lap',
         'tong_tien',
+        'ho_ten',
+        'email',
+        'sdt',
+        'dia_chi',
+        'status',
     ];
 
     public function chi_tiet_hdx() {

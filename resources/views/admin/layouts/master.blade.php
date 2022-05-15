@@ -130,6 +130,10 @@
                                 Trang chính</a>
                         </li>
                         <li>
+                            <a href={{ route('admin.dathang.getDanhSach') }}><i class="fa fa-table fa-fw"></i> DS
+                                đặt hàng</a>
+                        </li>
+                        <li>
                             <a href={{ route('admin.donhang.getDanhSach') }}><i class="fa fa-table fa-fw"></i> DS
                                 khách hàng cần mua sản phẩm</a>
                         </li>
@@ -175,10 +179,10 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href={{ route('admin.user.getCN') }}><i class="fa fa-list fa-fw"></i>
                                     Chức năng khác</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href={{ route('admin.user.getDanhSach') }}><i class="fa fa-group fa-fw"></i> Danh
                                     sách người dùng</a>

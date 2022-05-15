@@ -84,6 +84,27 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminlogin'], function () {
             
     });
 
+    Route::group(['prefix' =>'dat-hang'], function () {
+        Route::get('/', 'DatHangConTroller@getDanhSach')->name('admin.dathang.getDanhSach');
+
+        Route::get('xoa/{id}', 'DatHangConTroller@getXoa')->name('admin.dathang.getXoa');
+
+        Route::get('xem/{id}', 'DatHangConTroller@getXem')->name('admin.dathang.getXem');
+
+        Route::get('/xac-nhan-don-hang/{id}', 'DatHangConTroller@acceptOrder')->name('admin.hoadonxuat.acceptOrder');
+
+        Route::get('/bat-dau-giao-hang/{id}', 'DatHangConTroller@startShip')->name('admin.hoadonxuat.startShip');
+        Route::get('/huy-giao-hang/{id}', 'DatHangConTroller@cancelShip')->name('admin.hoadonxuat.cancelShip');
+
+        Route::get('/huy-don-hang/{id}', 'DatHangConTroller@cancelOrder' )->name('admin.hoadonxuat.AdmincancelOrder');
+
+        Route::get('/xac-nhan-thanh-toan/{id}', 'DatHangConTroller@acceptPayment')->name('admin.hoadonxuat.acceptPayment');
+
+        Route::get('/xem/{id}', 'DatHangConTroller@getView' )->name('admin.hoadonxuat.getView');
+        Route::get('/in/{id}', 'DatHangConTroller@print')->name('admin.hoadonxuat.print');
+
+    });
+
     Route::group(['prefix' =>'don-hang'], function () {
         Route::get('/', 'DonHangConTroller@getDanhSach')->name('admin.donhang.getDanhSach');
 

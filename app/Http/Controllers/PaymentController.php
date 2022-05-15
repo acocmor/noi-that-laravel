@@ -35,6 +35,10 @@ class PaymentController extends Controller
         $hdx = new HoaDonXuat;
         $hdx->ngay_lap = \Carbon\Carbon::now();
         $hdx->tong_tien = $cart->tongGia;
+        $hdx->ho_ten = $request->ho_ten;
+        $hdx->sdt = $request->dien_thoai;
+        $hdx->dia_chi = $request->dia_chi;
+        $hdx->email = $request->email;
         $hdx->save();
 
         foreach ($cart->sanPham as $key => $value) {
