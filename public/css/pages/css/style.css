@@ -16,7 +16,7 @@ html {
 :root {
     --white: #ffffff;
     --text-color: #242323;
-    --background-color: rgb(0, 110, 184);
+    --background-color: rgb(0, 107, 32);
 }
 
 h1,
@@ -343,6 +343,10 @@ label {
     justify-content: flex-start;
     flex-wrap: nowrap;
     flex-direction: column;
+}
+
+.widget-title {
+    margin: 0;    
 }
 
 .list-products li .wrap-product {

@@ -17,6 +17,30 @@ Route::get('/', 'WebsiteController@getIndex')->name('index');
 
 
 
+
+Route::prefix('gio-hang')->group(function () {
+    Route::get('/', 'CartController@getCart')->name('index.cart');
+
+    Route::get('/cart', 'CartController@getCartTemp')->name('index.getCart');
+
+    Route::get('/them/{id}', 'CartController@addCart' )->name('index.addCart');
+
+    Route::get('/sua/{id}/{tong}', 'CartController@updateCart')->name('index.updateCart');
+
+    Route::get('/xoa/{id}', 'CartController@getDelete')->name('index.getDelete');
+});
+
+Route::prefix('thanh-toan')->middleware('payment')->group(function () {
+    Route::get('/', 'PaymentController@getPayment')->name('index.getPayment');
+
+    Route::post('/', 'PaymentController@postPayment')->name('index.postPayment');
+
+});
+
+Route::get('/thong-bao','PaymentController@getThanhCong')->name('index.getThanhCong');
+
+
+
 Route::group(['prefix' => 'lien-he'], function() {
     Route::get('/', 'WebsiteController@getLienHe')->name('getLienHe');
 
@@ -42,9 +66,9 @@ Route::get('lien-he-tu-van/{id}', 'WebsiteController@getLHTV')->name('getLHTV');
 Route::post('lien-he-tu-van/{id}', 'WebsiteController@postLHTV')->name('postLHTV');
 
 
-Route::get('dang-nhap', 'AdminController@getLoginAdmin')->name('admin.login');
-Route::post('dang-nhap', 'AdminController@postLoginAdmin')->name('admin.postLogin');
-Route::get('dang-xuat', 'AdminController@getLogoutAdmin')->name('admin.logout');
+Route::get('admin/dang-nhap', 'AdminController@getLoginAdmin')->name('admin.login');
+Route::post('admin/dang-nhap', 'AdminController@postLoginAdmin')->name('admin.postLogin');
+Route::get('admin/dang-xuat', 'AdminController@getLogoutAdmin')->name('admin.logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'adminlogin'], function () {
     

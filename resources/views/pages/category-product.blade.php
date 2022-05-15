@@ -36,8 +36,15 @@
                                                 href="{{ route('getSP', ['loai-san-pham' => $lsp->slug, 'id' => $sp->id, 'ten-san-pham' => $sp->slug]) }}">{{ $sp->name }}</a>
                                         </h3>
                                         <p class="price-product">
-                                            @if ($sp->gia != 0)
-                                                {{ number_format($sp->gia) }} VNĐ
+                                            @if ($sp->gia != 0 && $sp->giam_gia == 0)
+                                            {{ number_format($sp->gia) }}
+                                            @elseif ($sp->gia != 0 && $sp->giam_gia != 0)
+                                                {{ number_format($sp->gia - $sp->giam_gia) }} VNĐ <p><del
+                                                    style="color: black; font-weight: 400; font-size: 15px;">
+                                                    <i>{{ number_format($sp->gia) }} VNĐ</i> </del></p>
+                                                    <div class="buy">
+                                                        <a style="cursor: pointer; color: white; background-color: red; padding: 10px" class="btn-buy" onclick="addCart({{ $sp->id }})" data-id="{{ $sp->id }}">Thêm vào giỏ hàng</a>
+                                                    </div>
                                             @else
                                                 Liên hệ
                                             @endif

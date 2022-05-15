@@ -45,6 +45,9 @@
                                                 {{ number_format($item->gia - $item->giam_gia) }} VNĐ <p><del
                                                     style="color: black; font-weight: 400; font-size: 15px;">
                                                     <i>{{ number_format($item->gia) }} VNĐ</i> </del></p>
+                                                    <div class="buy">
+                                                        <a style="cursor: pointer; color: white; background-color: red; padding: 10px" class="btn-buy" onclick="addCart({{ $item->id }})" data-id="{{ $item->id }}">Thêm vào giỏ hàng</a>
+                                                    </div>
                                             @else
                                                 Liên hệ
                                             @endif

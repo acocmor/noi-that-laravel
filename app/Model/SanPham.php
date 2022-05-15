@@ -25,4 +25,8 @@ class SanPham extends Model
     {
         return $this->beLongsTo('App\Model\LoaiSanPham','loai_san_pham_id');
     }
+
+    public function chi_tiet_hoa_don() {
+        return $this->hasMany(ChiTietHoaDonXuat::class, 'san_pham_id');
+    }
 }

@@ -35,16 +35,25 @@
                                 {{ number_format($sp->gia - $sp->giam_gia) }} VNĐ <del
                                     style="color: black; font-weight: 400; font-size: 15px; margin-left:12px;">
                                     <i>{{ number_format($sp->gia) }} VNĐ</i> </del>
+                                    
                             @else
                                 Liên hệ
                             @endif
                         </font>
                     </p>
                     <div class="buy-share">
+                        @if ($sp->gia > 0)
                         <div class="buy">
-                            <a href="{{route('getLHTV', ['id' => $sp->id, 'san-pham' => $sp->slug])}}" class="btn-buy" data-toggle="modal" data-target="#fomr-lh">Liên hệ, tư vấn mua
+                            <a style="cursor: pointer; color: white; background-color: red; padding: 10px" class="btn-buy" onclick="addCart({{ $sp->id }})" data-id="{{ $sp->id }}">Thêm vào giỏ hàng</a>
+                        </div>
+                        @else
+                        <div class="buy">
+                            <a href="{{route('getLHTV', ['id' => $sp->id, 'san-pham' => $sp->slug])}}" class="btn-buy">Liên hệ, tư vấn mua
                                 hàng</a>
                         </div>
+                        @endif
+                        
+                        
                         <div class="share-social">
                             <a class="button_share share facebook"
                                 href="http://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}"><i

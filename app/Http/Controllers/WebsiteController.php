@@ -27,6 +27,10 @@ class WebsiteController extends Controller
         return view('pages.index', $viewData);
     }
 
+    public function getCart() {
+        return view('pages.gio-hang');
+    }
+
     public function getProductPage() {
         $pro = LoaiSanPham::all();
         $viewData = [
